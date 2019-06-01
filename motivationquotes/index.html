@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+
+
+        <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+         <script src="js/jquery.js"></script>
+         <script src="js/jquery.mobile-1.4.5.js"></script>
+
+
+<style type="text/css">
+	#msg{
+		padding-left: 25%;
+
+		}
+
+
+		li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 15px;
+}
+
+li:before {
+  content: "\25BA \0020";
+  font-size: 6px;
+  position: absolute;
+  top: 5px;
+  left: -10px;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+
+}
+#footer, a {
+  color: #ecf0f1;
+  text-decoration: underline;
+}
+#footer, a:hover {
+  color: #2c3e50;
+}
+.title {
+  text-align: center;
+  margin: 2rem auto 3rem;
+}
+.quote-box {
+  background-color: pink;
+  color: #2c3e50;
+  margin: auto;
+  padding: 2rem;
+  max-width: 50rem;
+}
+#quote-text {
+  font-size: 2rem;
+}
+#quote-source {
+  font-size: 1.5rem;
+
+}
+.quote-buttons {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.fa-2x {
+  vertical-align: middle;
+  color: #3498db;
+  margin-right: 1rem;
+}
+.fa-2x:hover {
+  color: #2c3e50;
+}
+.btn-primary {
+  background-color: #3498db;
+  border: #3498db;
+}
+.btn-primary:hover {
+  background-color: #2c3e50;
+  border: #2c3e50;
+}
+.credits {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 990px) {
+  h1 {
+    font-size: 3rem;
+  }
+  #quote-text {
+    font-size: 1.75rem;
+  }
+  #quote-source {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  #quote-text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  #quote-source {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  .quote-buttons {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-width: 441px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .title {
+    margin-bottom: 2rem;
+  }
+  #quote-text {
+    font-size: 1.5rem;
+  }
+}
+  @media only screen and (max-width: 398px) {
+      #quote-text {
+    font-size: 1.25rem;
+  }
+     #quote-source {
+      font-size: 1rem;
+  }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+
+<div data-role="page" id="page1" data-theme="b">
+
+
+	<div data-role="header">
+		<h1>Motivational quotes </h1>
+
+
+
+	</div><!-- /header -->
+
+
+
+	<!-- /content -->
+	<div role="main" class="ui-content">
+
+
+    <div class="container">
+
+      <div class="quote-box">
+
+        <blockquote id="quote-text">If you can QUIT for a day,You can QUIT for a LIFETIME.</blockquote>
+
+
+        <p id="quote-source">-Benjamin Alire Saenz</p>
+        <div class="quote-buttons">
+
+
+          <button type="button" onClick="getQuote();" class="btn btn-primary" id="new-quote">New Quote</button>
+
+        </div>
+      </div>
+    </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
+});
+
+//store quotes in array
+var quotes = [
+  {content: "It does not matter how slowly you go as long as do not stop. ", source: "-Confucius"},
+  {content: "Recovery is not a race.You don't have to feel guilty if it takes you longer than you thought it would", source: "-Unknown"},
+  {content: "If you can QUIT for a day,You can QUIT for a LIFETIME.", source: "-Benjamin Alire Saenz."},
+  {content: "You were never created to live depressed,defeated,guility,condemned,ashamed or unworthy,You were created to be victorious.", source: "-Unknown"},
+  {content: "Courage is resistance to fear,mastery of fear-not absence of fear", source: "-Mark Twain"},
+  {content: "I understood myself only after i destroyed myself.And only in the procress of fixing myself,did I know who I really was.", source: "-Unknown"},
+  {content: "It is by going down into the abyss that we recover the teasures of life.where you stumble there lies your treasure.", source: "-Joseph Campbell"},
+  {content: "Don't let the past steal your present.", source: "-Terri Guillemets"},
+{content: "I have not failed.i have just found 10,000 things that do not work ", source: "-Thomas Edison"},
+{content: "Strength does not come from physical capacity.It comes from an indomitable will.", source: "-Mahatma Gandhi"},
+{content: "The best way to get something done is to BEGIN.", source: "-Unknown"},
+{content: "Recovery is HARD.Regret is HARDER.", source: "-Brittany Burgunder"},
+{content: "Where is LIFE,there is HOPE.", source: "-Ron Grover"},
+{content: "No matter how hard that moment love and hope are always possible.", source: "-George Chakiris"},
+{content: "Sometimes the SMALLEST step step in the right direction ends up being the BIGGEST step of your life.", source: "-Unknown"},
+{content: "Healing doesn't mean the damaged never existed.It means the damage No longer Controls our lives.", source: "-Unknown"},
+{content: "Hardship often prepare ordinary people for an extraordinary destiny", source: "-C.S Lewis"},
+
+]
+function getQuote() {
+//generate random number within array length
+var randomNumber = Math.floor(Math.random() * quotes.length + 1);
+
+//use random number to get quote and source, append to paragraph
+var quoteContent = quotes[randomNumber].content;
+var quoteSource = quotes[randomNumber].source;
+document.getElementById("quote-text").innerHTML = quoteContent;
+document.getElementById("quote-source").innerHTML = quoteSource;
+
+  // send to Tweet button
+  $(".twitter-share-button").attr("href", 'https://twitter.com/intent/tweet?text=' + quoteContent + " " + quoteSource);
+
+};
+
+
+
+
+
+</script>
+
+
+
+
+
+	</div><!-- /content -->
+
+
+	<!-- /footer -->
+	<div data-role="footer">
+		<h4></h4>
+	</div><!-- /footer -->
+
+
+
+
+
+
+</div><!-- /page -->
+
+
+
+</body>
+</html>
